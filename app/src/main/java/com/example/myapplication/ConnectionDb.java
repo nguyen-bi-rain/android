@@ -62,4 +62,19 @@ public class ConnectionDb extends SQLiteOpenHelper {
         db.close();
 
     }
+    public void updateContact(Contact contact){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues value  = new ContentValues();
+        value.put(Id,contact.getId());
+        value.put(Image,contact.getImage());
+        value.put(Name,contact.getName());
+        value.put(Phone,contact.getPhone());
+        db.update(TableName,value,"Id=?",new String[]{String.valueOf(contact.getId())});
+        db.close();
+    }
+    public void DeleteContact(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableName,"Id=?",new String[]{String.valueOf(id)});
+    }
+
 }

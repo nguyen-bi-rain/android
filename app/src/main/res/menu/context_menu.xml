@@ -4,6 +4,7 @@
 
     <item android:title="Them " android:id="@+id/mnuThem"/>
     <item android:title="Sua" android:id="@+id/mnuSua"/>
+    <item android:title="Xoa" android:id="@+id/mnuXoa"/>
     <item android:title="Call" android:id="@+id/mnuCall"/>
     <item android:title="SMS" android:id="@+id/mnuSMS"/>
 </menu>

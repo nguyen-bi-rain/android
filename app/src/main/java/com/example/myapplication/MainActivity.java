@@ -120,13 +120,14 @@ public class MainActivity extends AppCompatActivity {
         }
         if(resultCode == 210 && requestCode == 250){
             Bundle b = data.getExtras();
-            int id = b.getInt("Id");
+            int id = b.getInt("id");
             String name = b.getString("Name");
             String phone = b.getString("Phone");
             boolean stat = b.getBoolean("status");
             String Image = b.getString("image");
             Contact c = new Contact(id,name,phone,stat,Image);
             listContact.set(itemselectID,c);
+            db.updateContact(c);
             adapter.notifyDataSetChanged();
         }
     }
@@ -172,6 +173,12 @@ public class MainActivity extends AppCompatActivity {
 
             i.putExtras(b);
             startActivityForResult(i,250);
+        }
+        if(item.getItemId() == R.id.mnuXoa){
+            db.DeleteContact(itemselectID);
+            listContact.remove(itemselectID);
+            adapter.notifyDataSetChanged();
+
         }
         return super.onContextItemSelected(item);
     }
