@@ -71,7 +71,6 @@ public class SecondActivity extends AppCompatActivity {
                 String tname = name.getText().toString();
                 String tphone  = phone.getText().toString();
                 boolean ts = check.isChecked();
-                if(Validate(id,tname,tphone)){
                     Intent i = new Intent();
                     Bundle b = new Bundle();
                     b.putString("Name",tname);
@@ -82,7 +81,6 @@ public class SecondActivity extends AppCompatActivity {
                     i.putExtras(b);
                     setResult(180,i);
                     finish();
-                }
             }
         });
         btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +92,7 @@ public class SecondActivity extends AppCompatActivity {
                 String tname = name.getText().toString();
                 String tphone  = phone.getText().toString();
                 boolean ts = check.isChecked();
-                if(Validate(id,tname,tphone)){
+
                     Intent i = new Intent();
                     Bundle b = new Bundle();
                     b.putString("Name",tname);
@@ -105,7 +103,6 @@ public class SecondActivity extends AppCompatActivity {
                     i.putExtras(b);
                     setResult(210,i);
                     finish();
-                }
             }
         });
 
@@ -127,11 +124,5 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
-    private boolean Validate(int id, String name, String phone){
-        if(id == 0 || name.equals("") || phone.equals("")){
-            Toast.makeText(this,"khong duoc de trong",Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
-    }
+
 }
